@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>지도 확대 축소 막기</title>
+    <style>
+         #map1, #map2, #map3 {
+            width: 100%;
+            height: 300px;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+<div id="map1" style="width:100%;height:350px;"></div>
+<div id="map2" style="width:100%;height:350px;"></div>
+<div id="map3" style="width:100%;height:350px;"></div>
+<p>
+<button onclick="setZoomable(false)">지도 확대/축소 끄기</button>
+<button onclick="setZoomable(true)">지도 확대/축소 켜기</button>
+</p>
+
+<script type="text/javascript" src="http://dapi.kakao.com/v2/maps/sdk.js?appkey=f281f3543f5e84d03f2d0bed36be1a3b"></script>
+<script>
+const mapContainer1 = document.getElementById('map1'), // 지도를 표시할 div 
+    mapOption1 = { 
+        center: new kakao.maps.LatLng(37.5069739187173, 126.890319120085), // 지도의 중심좌표
+         // draggable: false, // 지도를 생성할때 지도 이동 및 확대/축소를 막으려면 draggable: false 옵션을 추가하세요
+        level: 3 // 지도의 확대 레벨
+    };
+
+const map1 = new kakao.maps.Map(mapContainer1, mapOption1); // 지도를 생성합니다
+
+const mapContainer2 = document.getElementById('map2'), // 지도를 표시할 div 
+    mapOption2 = { 
+        center: new kakao.maps.LatLng(37.5697291, 126.9897183), // 지도의 중심좌표
+         // draggable: false, // 지도를 생성할때 지도 이동 및 확대/축소를 막으려면 draggable: false 옵션을 추가하세요
+        level: 3 // 지도의 확대 레벨
+    };
+
+const map2 = new kakao.maps.Map(mapContainer2, mapOption2); // 지도를 생성합니다
+
+const mapContainer3 = document.getElementById('map3'), // 지도를 표시할 div 
+    mapOption3 = { 
+        center: new kakao.maps.LatLng(37.5542733, 126.918989), // 지도의 중심좌표
+         // draggable: false, // 지도를 생성할때 지도 이동 및 확대/축소를 막으려면 draggable: false 옵션을 추가하세요
+        level: 3 // 지도의 확대 레벨
+    };
+
+const map3 = new kakao.maps.Map(mapContainer3, mapOption3); // 지도를 생성합니다
+        
+// 버튼 클릭에 따라 지도 확대, 축소 기능을 막거나 풀고 싶은 경우에는 map.setZoomable 함수를 사용합니다
+function setZoomable(zoomable) {
+    // 마우스 휠로 지도 확대,축소 가능여부를 설정합니다
+    map.setZoomable(zoomable);    
+}
+</script>
+</body>
+</html>

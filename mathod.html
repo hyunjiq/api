@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>탭만들기</title>
+</head>
+<body>
+    <div id="tab">
+        <ul>
+            <li><button class="btn">tab1</button></li>
+            <li><button class="btn">tab2</button></li>
+            <li><button class="btn">tab3</button></li>
+        </ul>
+        <div id="tabcontant">
+            <p></p>
+            <p></p>
+        </div>
+    </div>
+    <script>
+        const mapinfo = [
+            {
+                위도 : "37.5069739187173",
+                경도 : "126.890319120085"
+            },
+            {
+                위도 : "37.50673",
+                경도 : "126.89031085"
+            },
+            {
+                위도 : "37.539187173",
+                경도 : "126.0085"
+            }
+        ]
+        //const targetdiv = document.getElementById("tabcontant");
+        const targetdiv = document.querySelectorAll("#tabcontant p");
+        targetdiv.forEach(function(ele, idx){
+            ele.innerHTML = mapinfo[0].위도;
+            ele.innerHTML = mapinfo[0].경도;
+        })
+        targetdiv[0].innerHTML = mapinfo[0].위도;
+        targetdiv[1].innerHTML = mapinfo[0].경도;
+    </script>
+</body>
+</html>
