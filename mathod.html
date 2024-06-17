@@ -12,7 +12,7 @@
             <li><button class="btn">tab2</button></li>
             <li><button class="btn">tab3</button></li>
         </ul>
-        <div id="tabcontant">
+        <div id="tabcontent">
             <p></p>
             <p></p>
         </div>
@@ -32,18 +32,20 @@
                 경도 : "126.0085"
             }
         ]
-        //const targetdiv = document.getElementById("tabcontant");
-        const targetdiv = document.querySelectorAll("#tabcontant p");//어래이화 된다
+        //const targetdiv = document.getElementById("tabcontent");
+        const targetdiv = document.querySelectorAll("#tabcontent p");//어래이화 된다
         const btns = document.querySelectorAll(".btn");
 
         btns.forEach(function(ele, idx){
+            //ele는 각각의 버튼, idx 0 ~ 순번
             ele.addEventListener("click", function(){
-                targetdiv[0].innerHTML = mapinfo[idx].위도;
-                targetdiv[1].innerHTML = mapinfo[idx].경도;
+                contentinner(idx)
             })
         })
-        targetdiv[0].innerHTML = mapinfo[1].위도;
-        targetdiv[1].innerHTML = mapinfo[1].경도;
+        function contentinner(num){ //선언적함수 위치상관없이 번역해서 저장
+            targetdiv[0].innerHTML = mapinfo[num].위도;
+            targetdiv[1].innerHTML = mapinfo[num].경도;
+        }
     </script>
 </body>
 </html>
