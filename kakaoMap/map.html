@@ -29,8 +29,8 @@
     const btns = document.querySelectorAll("#mapBtns .btn");
     btns.forEach(function( ele , idx ){
         ele.addEventListener('click', function(){
-            //console.log(`${ele}가 클릭하면 ${idx}번째 버튼을 클릭 ${this}가 클릭`);
-            //console.log(this.dataset.map, Array.isArray(this.dataset.map) )
+            // data-변수명 = 값 형태로 태그에 직접 삽입
+            // 자바스크립트가 접근할 때는 dataset.변수명으로 접근
             console.log("처음 데이터 타입확인", typeof this.dataset.map); //string
             const convertDB = JSON.parse(this.dataset.map); //자바스크립트형태로
             console.log("파싱이후 타입확인", typeof convertDB, convertDB[0]);
